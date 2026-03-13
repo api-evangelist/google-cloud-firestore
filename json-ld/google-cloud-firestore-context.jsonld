@@ -1,0 +1,25 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "firestore": "https://cloud.google.com/firestore/docs/reference/rest/v1/",
+    "gcloud": "https://cloud.google.com/apis/",
+    "Document": "firestore:projects.databases.documents",
+    "Database": "firestore:projects.databases",
+    "Index": "firestore:projects.databases.collectionGroups.indexes",
+    "Collection": "firestore:collection",
+    "name": "schema:name",
+    "description": "schema:description",
+    "fields": "firestore:fields",
+    "createTime": "schema:dateCreated",
+    "updateTime": "schema:dateModified",
+    "locationId": "schema:location",
+    "type": "firestore:databaseType",
+    "concurrencyMode": "firestore:concurrencyMode",
+    "stringValue": "schema:Text",
+    "integerValue": "schema:Integer",
+    "booleanValue": "schema:Boolean",
+    "geoPointValue": "schema:GeoCoordinates",
+    "timestampValue": "schema:DateTime",
+    "project": "gcloud:project"
+  }
+}

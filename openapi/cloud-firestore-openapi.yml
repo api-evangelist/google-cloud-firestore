@@ -1,0 +1,572 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Firestore API
+  description: >-
+    The Cloud Firestore API provides RESTful access to Google Cloud Firestore,
+    a flexible, scalable NoSQL cloud database for storing and syncing data.
+    It enables CRUD operations on documents and collections, querying with
+    filters and ordering, managing indexes, and handling real-time data
+    synchronization across client apps.
+  version: v1
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/firestore/docs/reference/rest
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: https://firestore.googleapis.com/v1
+    description: Cloud Firestore API v1
+tags:
+  - name: Documents
+    description: Operations on Firestore documents
+  - name: Databases
+    description: Operations on Firestore databases
+  - name: Indexes
+    description: Operations on Firestore indexes
+  - name: CollectionGroups
+    description: Operations on collection groups
+paths:
+  /projects/{project}/databases:
+    get:
+      tags:
+        - Databases
+      summary: List databases
+      description: List all the databases in the project.
+      operationId: listDatabases
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDatabasesResponse'
+      security:
+        - oauth2:
+            - https://www.googleapis.com/auth/cloud-platform
+            - https://www.googleapis.com/auth/datastore
+    post:
+      tags:
+        - Databases
+      summary: Create a database
+      description: Create a database.
+      operationId: createDatabase
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: databaseId
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Database'
+      responses:
+        '200':
+          description: Database creation initiated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      security:
+        - oauth2:
+            - https://www.googleapis.com/auth/cloud-platform
+            - https://www.googleapis.com/auth/datastore
+  /projects/{project}/databases/{database}:
+    get:
+      tags:
+        - Databases
+      summary: Get a database
+      description: Gets information about a database.
+      operationId: getDatabase
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: database
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Database'
+      security:
+        - oauth2:
+            - https://www.googleapis.com/auth/cloud-platform
+            - https://www.googleapis.com/auth/datastore
+    delete:
+      tags:
+        - Databases
+      summary: Delete a database
+      description: Deletes a database.
+      operationId: deleteDatabase
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: database
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Database deletion initiated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      security:
+        - oauth2:
+            - https://www.googleapis.com/auth/cloud-platform
+            - https://www.googleapis.com/auth/datastore
+  /projects/{project}/databases/{database}/documents/{collectionId}:
+    get:
+      tags:
+        - Documents
+      summary: List documents
+      description: Lists documents in a collection.
+      operationId: listDocuments
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: database
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDocumentsResponse'
+      security:
+        - oauth2:
+            - https://www.googleapis.com/auth/cloud-platform
+            - https://www.googleapis.com/auth/datastore
+    post:
+      tags:
+        - Documents
+      summary: Create a document
+      description: Creates a new document in the specified collection.
+      operationId: createDocument
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: database
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: query
+          description: Optional client-assigned document ID.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Document'
+      responses:
+        '200':
+          description: Document created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+      security:
+        - oauth2:
+            - https://www.googleapis.com/auth/cloud-platform
+            - https://www.googleapis.com/auth/datastore
+  /projects/{project}/databases/{database}/documents/{collectionId}/{documentId}:
+    get:
+      tags:
+        - Documents
+      summary: Get a document
+      description: Gets a single document.
+      operationId: getDocument
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: database
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '404':
+          description: Document not found
+      security:
+        - oauth2:
+            - https://www.googleapis.com/auth/cloud-platform
+            - https://www.googleapis.com/auth/datastore
+    patch:
+      tags:
+        - Documents
+      summary: Update a document
+      description: Updates or inserts a document.
+      operationId: updateDocument
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: database
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: updateMask.fieldPaths
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Document'
+      responses:
+        '200':
+          description: Document updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+      security:
+        - oauth2:
+            - https://www.googleapis.com/auth/cloud-platform
+            - https://www.googleapis.com/auth/datastore
+    delete:
+      tags:
+        - Documents
+      summary: Delete a document
+      description: Deletes a document.
+      operationId: deleteDocument
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: database
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Document deleted successfully
+      security:
+        - oauth2:
+            - https://www.googleapis.com/auth/cloud-platform
+            - https://www.googleapis.com/auth/datastore
+  /projects/{project}/databases/{database}/documents:runQuery:
+    post:
+      tags:
+        - Documents
+      summary: Run a query
+      description: Runs a structured query against a Firestore database.
+      operationId: runQuery
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: database
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RunQueryRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RunQueryResponse'
+      security:
+        - oauth2:
+            - https://www.googleapis.com/auth/cloud-platform
+            - https://www.googleapis.com/auth/datastore
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Cloud Platform
+            https://www.googleapis.com/auth/datastore: View and manage Firestore data
+  schemas:
+    Database:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The resource name of the database.
+        locationId:
+          type: string
+          description: The location of the database.
+        type:
+          type: string
+          enum:
+            - DATABASE_TYPE_UNSPECIFIED
+            - FIRESTORE_NATIVE
+            - DATASTORE_MODE
+        concurrencyMode:
+          type: string
+          enum:
+            - CONCURRENCY_MODE_UNSPECIFIED
+            - OPTIMISTIC
+            - PESSIMISTIC
+            - OPTIMISTIC_WITH_ENTITY_GROUPS
+        appEngineIntegrationMode:
+          type: string
+          enum:
+            - APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED
+            - ENABLED
+            - DISABLED
+        pointInTimeRecoveryEnablement:
+          type: string
+          enum:
+            - POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED
+            - POINT_IN_TIME_RECOVERY_ENABLED
+            - POINT_IN_TIME_RECOVERY_DISABLED
+        etag:
+          type: string
+        uid:
+          type: string
+    Document:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The resource name of the document.
+        fields:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Value'
+          description: The document's fields.
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    Value:
+      type: object
+      properties:
+        nullValue:
+          type: string
+        booleanValue:
+          type: boolean
+        integerValue:
+          type: string
+        doubleValue:
+          type: number
+        timestampValue:
+          type: string
+          format: date-time
+        stringValue:
+          type: string
+        bytesValue:
+          type: string
+          format: byte
+        referenceValue:
+          type: string
+        geoPointValue:
+          type: object
+          properties:
+            latitude:
+              type: number
+            longitude:
+              type: number
+        arrayValue:
+          type: object
+          properties:
+            values:
+              type: array
+              items:
+                $ref: '#/components/schemas/Value'
+        mapValue:
+          type: object
+          properties:
+            fields:
+              type: object
+              additionalProperties:
+                $ref: '#/components/schemas/Value'
+    RunQueryRequest:
+      type: object
+      properties:
+        structuredQuery:
+          type: object
+          properties:
+            from:
+              type: array
+              items:
+                type: object
+                properties:
+                  collectionId:
+                    type: string
+                  allDescendants:
+                    type: boolean
+            where:
+              type: object
+            orderBy:
+              type: array
+              items:
+                type: object
+            limit:
+              type: integer
+            offset:
+              type: integer
+    RunQueryResponse:
+      type: object
+      properties:
+        document:
+          $ref: '#/components/schemas/Document'
+        readTime:
+          type: string
+          format: date-time
+        skippedResults:
+          type: integer
+    ListDocumentsResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+        nextPageToken:
+          type: string
+    ListDatabasesResponse:
+      type: object
+      properties:
+        databases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Database'
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+        metadata:
+          type: object
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string

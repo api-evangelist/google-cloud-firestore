@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google-cloud-firestore/refs/heads/main/json-schema/document-schema.json",
+  "title": "Google Cloud Firestore Document",
+  "description": "A Firestore document resource representing a single entity stored in a Firestore collection.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The resource name of the document in the format projects/{project}/databases/{database}/documents/{collection}/{documentId}.",
+      "pattern": "^projects/[^/]+/databases/[^/]+/documents/.+$"
+    },
+    "fields": {
+      "type": "object",
+      "description": "The document's fields as a map of field names to values.",
+      "additionalProperties": {
+        "$ref": "#/$defs/Value"
+      }
+    },
+    "createTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time at which the document was created."
+    },
+    "updateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time at which the document was last changed."
+    }
+  },
+  "$defs": {
+    "Value": {
+      "type": "object",
+      "description": "A Firestore value that represents a typed field value.",
+      "properties": {
+        "nullValue": {
+          "type": "string",
+          "const": "NULL_VALUE",
+          "description": "A null value."
+        },
+        "booleanValue": {
+          "type": "boolean",
+          "description": "A boolean value."
+        },
+        "integerValue": {
+          "type": "string",
+          "description": "An integer value (as a string for 64-bit precision)."
+        },
+        "doubleValue": {
+          "type": "number",
+          "description": "A double value."
+        },
+        "timestampValue": {
+          "type": "string",
+          "format": "date-time",
+          "description": "A timestamp value."
+        },
+        "stringValue": {
+          "type": "string",
+          "description": "A string value."
+        },
+        "bytesValue": {
+          "type": "string",
+          "contentEncoding": "base64",
+          "description": "A bytes value (base64-encoded)."
+        },
+        "referenceValue": {
+          "type": "string",
+          "description": "A reference to a document."
+        },
+        "geoPointValue": {
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "longitude": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            }
+          },
+          "description": "A geo point value."
+        },
+        "arrayValue": {
+          "type": "object",
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Value"
+              }
+            }
+          },
+          "description": "An array value."
+        },
+        "mapValue": {
+          "type": "object",
+          "properties": {
+            "fields": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Value"
+              }
+            }
+          },
+          "description": "A map value."
+        }
+      }
+    }
+  }
+}
