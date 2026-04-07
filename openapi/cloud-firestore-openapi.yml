@@ -18,14 +18,10 @@ servers:
   - url: https://firestore.googleapis.com/v1
     description: Cloud Firestore API v1
 tags:
-  - name: Documents
-    description: Operations on Firestore documents
   - name: Databases
     description: Operations on Firestore databases
-  - name: Indexes
-    description: Operations on Firestore indexes
-  - name: CollectionGroups
-    description: Operations on collection groups
+  - name: Documents
+    description: Operations on Firestore documents
 paths:
   /projects/{project}/databases:
     get:
