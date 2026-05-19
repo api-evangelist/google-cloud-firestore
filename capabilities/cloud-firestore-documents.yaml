@@ -1,0 +1,394 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Firestore API — Documents
+  description: 'Google Cloud Firestore API — Documents. 6 operations. Lead operation: Google Cloud Firestore List documents.
+    Self-contained Naftiko capability covering one Google Cloud Firestore business surface.'
+  tags:
+  - Google Cloud Firestore
+  - Documents
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_FIRESTORE_API_KEY: GOOGLE_CLOUD_FIRESTORE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-firestore-documents
+    baseUri: https://firestore.googleapis.com/v1
+    description: Google Cloud Firestore API — Documents business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-project-databases-database-documents-collectionId
+      path: /projects/{project}/databases/{database}/documents/{collectionId}
+      operations:
+      - name: listdocuments
+        method: GET
+        description: Google Cloud Firestore List documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: database
+          in: path
+          type: string
+          required: true
+        - name: collectionId
+          in: path
+          type: string
+          required: true
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+        - name: orderBy
+          in: query
+          type: string
+      - name: createdocument
+        method: POST
+        description: Google Cloud Firestore Create a document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: database
+          in: path
+          type: string
+          required: true
+        - name: collectionId
+          in: path
+          type: string
+          required: true
+        - name: documentId
+          in: query
+          type: string
+          description: Optional client-assigned document ID.
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: projects-project-databases-database-documents-collectionId-documentId
+      path: /projects/{project}/databases/{database}/documents/{collectionId}/{documentId}
+      operations:
+      - name: getdocument
+        method: GET
+        description: Google Cloud Firestore Get a document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: database
+          in: path
+          type: string
+          required: true
+        - name: collectionId
+          in: path
+          type: string
+          required: true
+        - name: documentId
+          in: path
+          type: string
+          required: true
+      - name: updatedocument
+        method: PATCH
+        description: Google Cloud Firestore Update a document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: database
+          in: path
+          type: string
+          required: true
+        - name: collectionId
+          in: path
+          type: string
+          required: true
+        - name: documentId
+          in: path
+          type: string
+          required: true
+        - name: updateMask.fieldPaths
+          in: query
+          type: array
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletedocument
+        method: DELETE
+        description: Google Cloud Firestore Delete a document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: database
+          in: path
+          type: string
+          required: true
+        - name: collectionId
+          in: path
+          type: string
+          required: true
+        - name: documentId
+          in: path
+          type: string
+          required: true
+    - name: projects-project-databases-database-documents:runQuery
+      path: /projects/{project}/databases/{database}/documents:runQuery
+      operations:
+      - name: runquery
+        method: POST
+        description: Google Cloud Firestore Run a query
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: database
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_CLOUD_FIRESTORE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-firestore-documents-rest
+    port: 8080
+    description: REST adapter for Google Cloud Firestore API — Documents. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/projects/{project}/databases/{database}/documents/{collectionid}
+      name: projects-project-databases-database-documents-collectionid
+      description: REST surface for projects-project-databases-database-documents-collectionId.
+      operations:
+      - method: GET
+        name: listdocuments
+        description: Google Cloud Firestore List documents
+        call: cloud-firestore-documents.listdocuments
+        with:
+          project: rest.project
+          database: rest.database
+          collectionId: rest.collectionId
+          pageSize: rest.pageSize
+          pageToken: rest.pageToken
+          orderBy: rest.orderBy
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createdocument
+        description: Google Cloud Firestore Create a document
+        call: cloud-firestore-documents.createdocument
+        with:
+          project: rest.project
+          database: rest.database
+          collectionId: rest.collectionId
+          documentId: rest.documentId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{project}/databases/{database}/documents/{collectionid}/{documentid}
+      name: projects-project-databases-database-documents-collectionid-documentid
+      description: REST surface for projects-project-databases-database-documents-collectionId-documentId.
+      operations:
+      - method: GET
+        name: getdocument
+        description: Google Cloud Firestore Get a document
+        call: cloud-firestore-documents.getdocument
+        with:
+          project: rest.project
+          database: rest.database
+          collectionId: rest.collectionId
+          documentId: rest.documentId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatedocument
+        description: Google Cloud Firestore Update a document
+        call: cloud-firestore-documents.updatedocument
+        with:
+          project: rest.project
+          database: rest.database
+          collectionId: rest.collectionId
+          documentId: rest.documentId
+          updateMask.fieldPaths: rest.updateMask.fieldPaths
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedocument
+        description: Google Cloud Firestore Delete a document
+        call: cloud-firestore-documents.deletedocument
+        with:
+          project: rest.project
+          database: rest.database
+          collectionId: rest.collectionId
+          documentId: rest.documentId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{project}/databases/{database}/documents-runquery
+      name: projects-project-databases-database-documents-runquery
+      description: REST surface for projects-project-databases-database-documents:runQuery.
+      operations:
+      - method: POST
+        name: runquery
+        description: Google Cloud Firestore Run a query
+        call: cloud-firestore-documents.runquery
+        with:
+          project: rest.project
+          database: rest.database
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-firestore-documents-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Cloud Firestore API — Documents. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: google-cloud-firestore-list-documents
+      description: Google Cloud Firestore List documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-firestore-documents.listdocuments
+      with:
+        project: tools.project
+        database: tools.database
+        collectionId: tools.collectionId
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+        orderBy: tools.orderBy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-cloud-firestore-create-document
+      description: Google Cloud Firestore Create a document
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-firestore-documents.createdocument
+      with:
+        project: tools.project
+        database: tools.database
+        collectionId: tools.collectionId
+        documentId: tools.documentId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-cloud-firestore-get-document
+      description: Google Cloud Firestore Get a document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-firestore-documents.getdocument
+      with:
+        project: tools.project
+        database: tools.database
+        collectionId: tools.collectionId
+        documentId: tools.documentId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-cloud-firestore-update-document
+      description: Google Cloud Firestore Update a document
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cloud-firestore-documents.updatedocument
+      with:
+        project: tools.project
+        database: tools.database
+        collectionId: tools.collectionId
+        documentId: tools.documentId
+        updateMask.fieldPaths: tools.updateMask.fieldPaths
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-cloud-firestore-delete-document
+      description: Google Cloud Firestore Delete a document
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: cloud-firestore-documents.deletedocument
+      with:
+        project: tools.project
+        database: tools.database
+        collectionId: tools.collectionId
+        documentId: tools.documentId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-cloud-firestore-run-query
+      description: Google Cloud Firestore Run a query
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: cloud-firestore-documents.runquery
+      with:
+        project: tools.project
+        database: tools.database
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
