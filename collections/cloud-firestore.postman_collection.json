@@ -1,0 +1,1712 @@
+{
+  "item": [
+    {
+      "id": "9dee96a0-6408-4305-aa67-ff0b21c1ddea",
+      "name": "Databases",
+      "description": {
+        "content": "Operations on Firestore databases",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "092f99c0-faa0-4725-896d-d19bb0fc7c2a",
+          "name": "Google Cloud Firestore List databases",
+          "request": {
+            "name": "Google Cloud Firestore List databases",
+            "description": {
+              "content": "List all the databases in the project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "databases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "89a6ff05-2a9e-4927-adf6-b967be6f61e2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":project",
+                    "databases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"databases\": [\n    {\n      \"name\": \"string\",\n      \"locationId\": \"string\",\n      \"type\": \"FIRESTORE_NATIVE\",\n      \"concurrencyMode\": \"OPTIMISTIC_WITH_ENTITY_GROUPS\",\n      \"appEngineIntegrationMode\": \"APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED\",\n      \"pointInTimeRecoveryEnablement\": \"POINT_IN_TIME_RECOVERY_DISABLED\",\n      \"etag\": \"string\",\n      \"uid\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"locationId\": \"string\",\n      \"type\": \"FIRESTORE_NATIVE\",\n      \"concurrencyMode\": \"PESSIMISTIC\",\n      \"appEngineIntegrationMode\": \"DISABLED\",\n      \"pointInTimeRecoveryEnablement\": \"POINT_IN_TIME_RECOVERY_ENABLED\",\n      \"etag\": \"string\",\n      \"uid\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13fb9c92-0a40-4c12-a3b2-954e3ff01b64",
+          "name": "Google Cloud Firestore Create a database",
+          "request": {
+            "name": "Google Cloud Firestore Create a database",
+            "description": {
+              "content": "Create a database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "databases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "databaseId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"concurrencyMode\": \"<string>\",\n  \"appEngineIntegrationMode\": \"<string>\",\n  \"pointInTimeRecoveryEnablement\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5c81089b-bb4a-45c3-b08c-6ee04ff64e97",
+              "name": "Database creation initiated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":project",
+                    "databases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "databaseId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"concurrencyMode\": \"<string>\",\n  \"appEngineIntegrationMode\": \"<string>\",\n  \"pointInTimeRecoveryEnablement\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"done\": true,\n  \"metadata\": {},\n  \"error\": {\n    \"code\": 5200,\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6207d19c-cfa0-4927-9acd-d6e7472c4be2",
+          "name": "Google Cloud Firestore Get a database",
+          "request": {
+            "name": "Google Cloud Firestore Get a database",
+            "description": {
+              "content": "Gets information about a database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "databases",
+                ":database"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "database",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0def5789-22ce-419a-a0cc-dc956d2fc1c9",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":project",
+                    "databases",
+                    ":database"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "database",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"locationId\": \"string\",\n  \"type\": \"FIRESTORE_NATIVE\",\n  \"concurrencyMode\": \"OPTIMISTIC_WITH_ENTITY_GROUPS\",\n  \"appEngineIntegrationMode\": \"DISABLED\",\n  \"pointInTimeRecoveryEnablement\": \"POINT_IN_TIME_RECOVERY_DISABLED\",\n  \"etag\": \"string\",\n  \"uid\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6db9cab0-07d1-47d5-8035-b7e15f25a745",
+          "name": "Google Cloud Firestore Delete a database",
+          "request": {
+            "name": "Google Cloud Firestore Delete a database",
+            "description": {
+              "content": "Deletes a database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "databases",
+                ":database"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "database",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "31075b41-f954-4845-9f10-0c822c17a0e4",
+              "name": "Database deletion initiated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":project",
+                    "databases",
+                    ":database"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "database",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"done\": true,\n  \"metadata\": {},\n  \"error\": {\n    \"code\": 5200,\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "41324bf4-aa9e-4c9e-983d-0638855ad75f",
+      "name": "Documents",
+      "description": {
+        "content": "Operations on Firestore documents",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "367fded7-2287-4d0d-880c-ba808957a3c8",
+          "name": "Google Cloud Firestore List documents",
+          "request": {
+            "name": "Google Cloud Firestore List documents",
+            "description": {
+              "content": "Lists documents in a collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "databases",
+                ":database",
+                "documents",
+                ":collectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "database",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a657e428-b7aa-4b85-9cb1-00cec6b5ed00",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":project",
+                    "databases",
+                    ":database",
+                    "documents",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "database",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documents\": [\n    {\n      \"name\": \"string\",\n      \"fields\": {\n        \"key_0\": {\n          \"nullValue\": \"string\",\n          \"booleanValue\": true,\n          \"integerValue\": \"string\",\n          \"doubleValue\": 4437.420418772022,\n          \"timestampValue\": \"1946-07-04T08:29:08.852Z\",\n          \"stringValue\": \"string\",\n          \"bytesValue\": \"string\",\n          \"referenceValue\": \"string\",\n          \"geoPointValue\": {\n            \"latitude\": 5978.916920758171,\n            \"longitude\": 9696.990126412815\n          },\n          \"arrayValue\": {\n            \"values\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              }\n            ]\n          },\n          \"mapValue\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              }\n            }\n          }\n        },\n        \"key_1\": {\n          \"nullValue\": \"string\",\n          \"booleanValue\": false,\n          \"integerValue\": \"string\",\n          \"doubleValue\": 4268.718133386113,\n          \"timestampValue\": \"1978-09-11T00:43:26.694Z\",\n          \"stringValue\": \"string\",\n          \"bytesValue\": \"string\",\n          \"referenceValue\": \"string\",\n          \"geoPointValue\": {\n            \"latitude\": 8930.635979901932,\n            \"longitude\": 9518.003895212354\n          },\n          \"arrayValue\": {\n            \"values\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              }\n            ]\n          },\n          \"mapValue\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              }\n            }\n          }\n        }\n      },\n      \"createTime\": \"2026-01-26T17:03:55.485Z\",\n      \"updateTime\": \"1982-01-17T01:34:25.751Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"fields\": {\n        \"key_0\": {\n          \"nullValue\": \"string\",\n          \"booleanValue\": true,\n          \"integerValue\": \"string\",\n          \"doubleValue\": 6040.587902928215,\n          \"timestampValue\": \"1965-04-05T12:44:27.794Z\",\n          \"stringValue\": \"string\",\n          \"bytesValue\": \"string\",\n          \"referenceValue\": \"string\",\n          \"geoPointValue\": {\n            \"latitude\": 928.0239648316035,\n            \"longitude\": 2795.5868010302174\n          },\n          \"arrayValue\": {\n            \"values\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              }\n            ]\n          },\n          \"mapValue\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              },\n              \"key_3\": {\n                \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n              }\n            }\n          }\n        }\n      },\n      \"createTime\": \"1973-02-13T07:55:08.039Z\",\n      \"updateTime\": \"2003-12-09T15:57:42.638Z\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0129485b-9267-41cb-87a5-28432e5ce84d",
+          "name": "Google Cloud Firestore Create a document",
+          "request": {
+            "name": "Google Cloud Firestore Create a document",
+            "description": {
+              "content": "Creates a new document in the specified collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "databases",
+                ":database",
+                "documents",
+                ":collectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "documentId",
+                  "value": "<string>",
+                  "description": "Optional client-assigned document ID."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "database",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"fields\": {\n    \"key_0\": {\n      \"nullValue\": \"<string>\",\n      \"booleanValue\": \"<boolean>\",\n      \"integerValue\": \"<string>\",\n      \"doubleValue\": \"<number>\",\n      \"timestampValue\": \"<dateTime>\",\n      \"stringValue\": \"<string>\",\n      \"bytesValue\": \"<byte>\",\n      \"referenceValue\": \"<string>\",\n      \"geoPointValue\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"arrayValue\": {\n        \"values\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        ]\n      },\n      \"mapValue\": {\n        \"fields\": {\n          \"key_0\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        }\n      }\n    },\n    \"key_1\": {\n      \"nullValue\": \"<string>\",\n      \"booleanValue\": \"<boolean>\",\n      \"integerValue\": \"<string>\",\n      \"doubleValue\": \"<number>\",\n      \"timestampValue\": \"<dateTime>\",\n      \"stringValue\": \"<string>\",\n      \"bytesValue\": \"<byte>\",\n      \"referenceValue\": \"<string>\",\n      \"geoPointValue\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"arrayValue\": {\n        \"values\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        ]\n      },\n      \"mapValue\": {\n        \"fields\": {\n          \"key_0\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          \"key_1\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          \"key_2\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        }\n      }\n    }\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d29c2e5e-0237-4f15-b1f0-721aa4a1d2c1",
+              "name": "Document created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":project",
+                    "databases",
+                    ":database",
+                    "documents",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "documentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "database",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"fields\": {\n    \"key_0\": {\n      \"nullValue\": \"string\",\n      \"booleanValue\": true,\n      \"integerValue\": \"string\",\n      \"doubleValue\": 7331.450020115203,\n      \"timestampValue\": \"1951-01-28T22:25:42.338Z\",\n      \"stringValue\": \"string\",\n      \"bytesValue\": \"string\",\n      \"referenceValue\": \"string\",\n      \"geoPointValue\": {\n        \"latitude\": 1789.7379408884105,\n        \"longitude\": 5363.236805335601\n      },\n      \"arrayValue\": {\n        \"values\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        ]\n      },\n      \"mapValue\": {\n        \"fields\": {\n          \"key_0\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          \"key_1\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          \"key_2\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          \"key_3\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        }\n      }\n    }\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"fields\": {\n    \"key_0\": {\n      \"nullValue\": \"string\",\n      \"booleanValue\": true,\n      \"integerValue\": \"string\",\n      \"doubleValue\": 8964.884883895982,\n      \"timestampValue\": \"2021-10-31T14:34:43.760Z\",\n      \"stringValue\": \"string\",\n      \"bytesValue\": \"string\",\n      \"referenceValue\": \"string\",\n      \"geoPointValue\": {\n        \"latitude\": 4657.263606072538,\n        \"longitude\": 8960.404165524717\n      },\n      \"arrayValue\": {\n        \"values\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        ]\n      },\n      \"mapValue\": {\n        \"fields\": {\n          \"key_0\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        }\n      }\n    }\n  },\n  \"createTime\": \"1992-02-12T01:51:27.767Z\",\n  \"updateTime\": \"1950-12-22T18:22:41.350Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0407e28-24be-441f-bcf8-fdcbe0e025ab",
+          "name": "Google Cloud Firestore Get a document",
+          "request": {
+            "name": "Google Cloud Firestore Get a document",
+            "description": {
+              "content": "Gets a single document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "databases",
+                ":database",
+                "documents",
+                ":collectionId",
+                ":documentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "database",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "03d700c4-01a5-477a-a8dc-98898d79c515",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":project",
+                    "databases",
+                    ":database",
+                    "documents",
+                    ":collectionId",
+                    ":documentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "database",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"fields\": {\n    \"key_0\": {\n      \"nullValue\": \"string\",\n      \"booleanValue\": true,\n      \"integerValue\": \"string\",\n      \"doubleValue\": 8964.884883895982,\n      \"timestampValue\": \"2021-10-31T14:34:43.760Z\",\n      \"stringValue\": \"string\",\n      \"bytesValue\": \"string\",\n      \"referenceValue\": \"string\",\n      \"geoPointValue\": {\n        \"latitude\": 4657.263606072538,\n        \"longitude\": 8960.404165524717\n      },\n      \"arrayValue\": {\n        \"values\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        ]\n      },\n      \"mapValue\": {\n        \"fields\": {\n          \"key_0\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        }\n      }\n    }\n  },\n  \"createTime\": \"1992-02-12T01:51:27.767Z\",\n  \"updateTime\": \"1950-12-22T18:22:41.350Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a49c9f39-fdc9-4dd7-bf03-b2d8df4fb61a",
+              "name": "Document not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":project",
+                    "databases",
+                    ":database",
+                    "documents",
+                    ":collectionId",
+                    ":documentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "database",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea5da35b-f54d-476f-aa10-d693724f3c3f",
+          "name": "Google Cloud Firestore Update a document",
+          "request": {
+            "name": "Google Cloud Firestore Update a document",
+            "description": {
+              "content": "Updates or inserts a document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "databases",
+                ":database",
+                "documents",
+                ":collectionId",
+                ":documentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "updateMask.fieldPaths",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updateMask.fieldPaths",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "database",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"fields\": {\n    \"key_0\": {\n      \"nullValue\": \"<string>\",\n      \"booleanValue\": \"<boolean>\",\n      \"integerValue\": \"<string>\",\n      \"doubleValue\": \"<number>\",\n      \"timestampValue\": \"<dateTime>\",\n      \"stringValue\": \"<string>\",\n      \"bytesValue\": \"<byte>\",\n      \"referenceValue\": \"<string>\",\n      \"geoPointValue\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"arrayValue\": {\n        \"values\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        ]\n      },\n      \"mapValue\": {\n        \"fields\": {\n          \"key_0\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        }\n      }\n    },\n    \"key_1\": {\n      \"nullValue\": \"<string>\",\n      \"booleanValue\": \"<boolean>\",\n      \"integerValue\": \"<string>\",\n      \"doubleValue\": \"<number>\",\n      \"timestampValue\": \"<dateTime>\",\n      \"stringValue\": \"<string>\",\n      \"bytesValue\": \"<byte>\",\n      \"referenceValue\": \"<string>\",\n      \"geoPointValue\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"arrayValue\": {\n        \"values\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        ]\n      },\n      \"mapValue\": {\n        \"fields\": {\n          \"key_0\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          \"key_1\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          \"key_2\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        }\n      }\n    }\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a5075b8-dcdc-4619-aa18-eaa27c235b10",
+              "name": "Document updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":project",
+                    "databases",
+                    ":database",
+                    "documents",
+                    ":collectionId",
+                    ":documentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "updateMask.fieldPaths",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updateMask.fieldPaths",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "database",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"fields\": {\n    \"key_0\": {\n      \"nullValue\": \"string\",\n      \"booleanValue\": true,\n      \"integerValue\": \"string\",\n      \"doubleValue\": 7331.450020115203,\n      \"timestampValue\": \"1951-01-28T22:25:42.338Z\",\n      \"stringValue\": \"string\",\n      \"bytesValue\": \"string\",\n      \"referenceValue\": \"string\",\n      \"geoPointValue\": {\n        \"latitude\": 1789.7379408884105,\n        \"longitude\": 5363.236805335601\n      },\n      \"arrayValue\": {\n        \"values\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        ]\n      },\n      \"mapValue\": {\n        \"fields\": {\n          \"key_0\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          \"key_1\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          \"key_2\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          \"key_3\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        }\n      }\n    }\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"fields\": {\n    \"key_0\": {\n      \"nullValue\": \"string\",\n      \"booleanValue\": true,\n      \"integerValue\": \"string\",\n      \"doubleValue\": 8964.884883895982,\n      \"timestampValue\": \"2021-10-31T14:34:43.760Z\",\n      \"stringValue\": \"string\",\n      \"bytesValue\": \"string\",\n      \"referenceValue\": \"string\",\n      \"geoPointValue\": {\n        \"latitude\": 4657.263606072538,\n        \"longitude\": 8960.404165524717\n      },\n      \"arrayValue\": {\n        \"values\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        ]\n      },\n      \"mapValue\": {\n        \"fields\": {\n          \"key_0\": {\n            \"value\": \"<Circular reference to #/components/schemas/Value detected>\"\n          }\n        }\n      }\n    }\n  },\n  \"createTime\": \"1992-02-12T01:51:27.767Z\",\n  \"updateTime\": \"1950-12-22T18:22:41.350Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7d5b5d9-b1d4-4435-a6da-ce6d2ac33df8",
+          "name": "Google Cloud Firestore Delete a document",
+          "request": {
+            "name": "Google Cloud Firestore Delete a document",
+            "description": {
+              "content": "Deletes a document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "databases",
+                ":database",
+                "documents",
+                ":collectionId",
+                ":documentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "database",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "08b866f1-e0c6-4edf-8bfc-564d6a512131",
+              "name": "Document deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":project",
+                    "databases",
+                    ":database",
+                    "documents",
+                    ":collectionId",
+                    ":documentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "database",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c6e4f33-2158-448f-8493-5dd2350cfaea",
+          "name": "Google Cloud Firestore Run a query",
+          "request": {
+            "name": "Google Cloud Firestore Run a query",
+            "description": {
+              "content": "Runs a structured query against a Firestore database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "databases",
+                ":database",
+                "documents:runQuery"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "database",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"structuredQuery\": {\n    \"from\": [\n      {\n        \"collectionId\": \"<string>\",\n        \"allDescendants\": \"<boolean>\"\n      },\n      {\n        \"collectionId\": \"<string>\",\n        \"allDescendants\": \"<boolean>\"\n      }\n    ],\n    \"where\": \"<object>\",\n    \"orderBy\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d39fda86-37f5-4fb9-a6b9-49874da0eb20",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":project",
+                    "databases",
+                    ":database",
+                    "documents:runQuery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "database",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"structuredQuery\": {\n    \"from\": [\n      {\n        \"collectionId\": \"<string>\",\n        \"allDescendants\": \"<boolean>\"\n      },\n      {\n        \"collectionId\": \"<string>\",\n        \"allDescendants\": \"<boolean>\"\n      }\n    ],\n    \"where\": \"<object>\",\n    \"orderBy\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"document\": {\n      \"name\": \"string\",\n      \"fields\": {\n        \"key_0\": {\n          \"nullValue\": \"string\",\n          \"booleanValue\": false,\n          \"integerValue\": \"string\",\n          \"doubleValue\": 3843.9376722236275,\n          \"timestampValue\": \"1950-09-18T00:09:44.641Z\",\n          \"stringValue\": \"string\",\n          \"bytesValue\": \"string\",\n          \"referenceValue\": \"string\",\n          \"geoPointValue\": {\n            \"latitude\": 533.5038536244407,\n            \"longitude\": 8660.331705321807\n          },\n          \"arrayValue\": {\n            \"values\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"mapValue\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        }\n      },\n      \"createTime\": \"2003-08-23T05:07:16.647Z\",\n      \"updateTime\": \"2023-12-14T10:57:19.817Z\"\n    },\n    \"readTime\": \"1951-12-07T14:27:43.018Z\",\n    \"skippedResults\": 9159\n  },\n  {\n    \"document\": {\n      \"name\": \"string\",\n      \"fields\": {\n        \"key_0\": {\n          \"nullValue\": \"string\",\n          \"booleanValue\": false,\n          \"integerValue\": \"string\",\n          \"doubleValue\": 7197.982026486582,\n          \"timestampValue\": \"2019-01-05T18:11:10.446Z\",\n          \"stringValue\": \"string\",\n          \"bytesValue\": \"string\",\n          \"referenceValue\": \"string\",\n          \"geoPointValue\": {\n            \"latitude\": 2895.1918683647136,\n            \"longitude\": 4670.4484111412985\n          },\n          \"arrayValue\": {\n            \"values\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"mapValue\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"key_1\": {\n          \"nullValue\": \"string\",\n          \"booleanValue\": true,\n          \"integerValue\": \"string\",\n          \"doubleValue\": 9938.218081458766,\n          \"timestampValue\": \"1984-10-01T18:08:26.957Z\",\n          \"stringValue\": \"string\",\n          \"bytesValue\": \"string\",\n          \"referenceValue\": \"string\",\n          \"geoPointValue\": {\n            \"latitude\": 9150.367415884723,\n            \"longitude\": 7184.296543681071\n          },\n          \"arrayValue\": {\n            \"values\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"mapValue\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"key_2\": {\n          \"nullValue\": \"string\",\n          \"booleanValue\": false,\n          \"integerValue\": \"string\",\n          \"doubleValue\": 336.7356222199802,\n          \"timestampValue\": \"2005-03-30T13:39:43.073Z\",\n          \"stringValue\": \"string\",\n          \"bytesValue\": \"string\",\n          \"referenceValue\": \"string\",\n          \"geoPointValue\": {\n            \"latitude\": 1452.9498667578523,\n            \"longitude\": 5010.221751695386\n          },\n          \"arrayValue\": {\n            \"values\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"mapValue\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        }\n      },\n      \"createTime\": \"1964-11-27T21:37:52.646Z\",\n      \"updateTime\": \"2026-05-13T18:58:24.815Z\"\n    },\n    \"readTime\": \"2015-11-25T20:35:20.164Z\",\n    \"skippedResults\": 5087\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://firestore.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d1ad2efd-1510-4d91-9a3a-f40a803e238f",
+    "name": "Google Cloud Firestore API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Cloud Firestore API provides RESTful access to Google Cloud Firestore, a flexible, scalable NoSQL cloud database for storing and syncing data. It enables CRUD operations on documents and collections, querying with filters and ordering, managing indexes, and handling real-time data synchronization across client apps.\n\nContact Support:\n Name: Google Cloud",
+      "type": "text/plain"
+    }
+  }
+}
