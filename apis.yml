@@ -5,7 +5,7 @@ description: >-
   data in sync across client apps through real-time listeners and offers offline support for mobile and web, enabling
   responsive apps that work regardless of network latency or internet connectivity. Firestore supports ACID
   transactions, automatic multi-region data replication, and strong consistency guarantees.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-firestore/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -24,7 +24,7 @@ apis:
       databases. It supports structured queries with filters, ordering, and pagination, as well as batch operations and
       transactions. The API also enables database management, index configuration, and collection group queries for
       flexible data modeling and retrieval patterns.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://cloud.google.com/firestore/docs
     baseURL: https://firestore.googleapis.com/v1
     tags:
