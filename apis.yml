@@ -44,6 +44,12 @@ apis:
       - type: JSONSchema
         url: json-schema/document-schema.json
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-cloud-firestore-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-cloud-firestore-domain-security.yml
+  - type: Authentication
+    url: authentication/google-cloud-firestore-authentication.yml
   - type: OAuthScopes
     url: scopes/google-cloud-firestore-scopes.yml
   - type: GitHubOrganization
