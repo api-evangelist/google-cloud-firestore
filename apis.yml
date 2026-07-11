@@ -44,6 +44,8 @@ apis:
       - type: JSONSchema
         url: json-schema/document-schema.json
 common:
+  - type: OAuthScopes
+    url: scopes/google-cloud-firestore-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/googleapis
   - type: Portal
