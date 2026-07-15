@@ -44,6 +44,8 @@ apis:
       - type: JSONSchema
         url: json-schema/document-schema.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-cloud-firestore-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-cloud-firestore-vulnerability-disclosure.yml
   - type: DomainSecurity
