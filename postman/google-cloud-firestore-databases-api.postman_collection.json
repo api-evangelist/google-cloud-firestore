@@ -1,0 +1,580 @@
+{
+  "info": {
+    "_postman_id": "34580e6f-33f6-49a7-984f-eec319a5a69d",
+    "name": "Google Cloud Firestore Databases API",
+    "description": "The Cloud Firestore API provides RESTful access to Google Cloud Firestore, a flexible, scalable NoSQL cloud database for storing and syncing data. It enables CRUD operations on documents and collections, querying with filters and ordering, managing indexes, and handling real-time data synchronization across client apps.\n\nContact Support:\n Name: Google Cloud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:47:32.000Z",
+    "updatedAt": "2026-07-28T01:47:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-34580e6f-33f6-49a7-984f-eec319a5a69d"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{project}",
+          "item": [
+            {
+              "name": "databases",
+              "item": [
+                {
+                  "name": "{database}",
+                  "item": [
+                    {
+                      "name": "Google Cloud Firestore Get a database",
+                      "id": "03bdbcd5-9fbf-43de-b85e-03fb4d834fa8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://oauth2.googleapis.com/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://accounts.google.com/o/oauth2/auth",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project/databases/:database",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project",
+                            "databases",
+                            ":database"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3603d2eb-e978-4bfa-b797-b4ffdef9b68e",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "d2c6b6d2-c5e5-42f4-b6ff-475e4684c4ae",
+                              "key": "database",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Gets information about a database."
+                      },
+                      "response": [
+                        {
+                          "id": "3ebe6c0b-ddc4-44e1-9f98-d1596fe2c48a",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:project/databases/:database",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":project",
+                                "databases",
+                                ":database"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                },
+                                {
+                                  "key": "database"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"type\": \"FIRESTORE_NATIVE\",\n  \"concurrencyMode\": \"OPTIMISTIC\",\n  \"appEngineIntegrationMode\": \"ENABLED\",\n  \"pointInTimeRecoveryEnablement\": \"POINT_IN_TIME_RECOVERY_DISABLED\",\n  \"etag\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:47:33.000Z",
+                          "updatedAt": "2026-07-28T01:47:33.000Z",
+                          "uid": "35240-3ebe6c0b-ddc4-44e1-9f98-d1596fe2c48a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:47:33.000Z",
+                      "updatedAt": "2026-07-28T01:47:33.000Z",
+                      "uid": "35240-03bdbcd5-9fbf-43de-b85e-03fb4d834fa8"
+                    },
+                    {
+                      "name": "Google Cloud Firestore Delete a database",
+                      "id": "8d80f802-6e20-4846-9b19-153459f39719",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://oauth2.googleapis.com/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://accounts.google.com/o/oauth2/auth",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project/databases/:database",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project",
+                            "databases",
+                            ":database"
+                          ],
+                          "variable": [
+                            {
+                              "id": "91071ac3-78ef-49fb-8567-71722d278005",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "b3a6840a-6d28-4a14-a275-1e118c620909",
+                              "key": "database",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Deletes a database."
+                      },
+                      "response": [
+                        {
+                          "id": "b89a1128-8d7d-4610-b0f9-317acc1153a1",
+                          "name": "Database deletion initiated",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:project/databases/:database",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":project",
+                                "databases",
+                                ":database"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                },
+                                {
+                                  "key": "database"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\",\n  \"done\": \"<boolean>\",\n  \"metadata\": {},\n  \"error\": {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:47:33.000Z",
+                          "updatedAt": "2026-07-28T01:47:33.000Z",
+                          "uid": "35240-b89a1128-8d7d-4610-b0f9-317acc1153a1"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:47:33.000Z",
+                      "updatedAt": "2026-07-28T01:47:33.000Z",
+                      "uid": "35240-8d80f802-6e20-4846-9b19-153459f39719"
+                    }
+                  ],
+                  "id": "45f493c9-6e53-4255-9b27-ad32fbb1a657",
+                  "createdAt": "2026-07-28T01:47:33.000Z",
+                  "updatedAt": "2026-07-28T01:47:33.000Z",
+                  "uid": "35240-45f493c9-6e53-4255-9b27-ad32fbb1a657"
+                },
+                {
+                  "name": "Google Cloud Firestore List databases",
+                  "id": "cfab8fea-86de-46cb-8e59-39e51b559c15",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://oauth2.googleapis.com/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.google.com/o/oauth2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "authorization_code",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:project/databases",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":project",
+                        "databases"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f2160813-4369-4e97-8a1c-f33a2b37c59a",
+                          "key": "project",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "List all the databases in the project."
+                  },
+                  "response": [
+                    {
+                      "id": "c5012110-1f38-4eee-a178-3e39643cdaa2",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project/databases",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project",
+                            "databases"
+                          ],
+                          "variable": [
+                            {
+                              "key": "project"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"databases\": [\n    {\n      \"name\": \"<string>\",\n      \"locationId\": \"<string>\",\n      \"type\": \"DATASTORE_MODE\",\n      \"concurrencyMode\": \"OPTIMISTIC\",\n      \"appEngineIntegrationMode\": \"DISABLED\",\n      \"pointInTimeRecoveryEnablement\": \"POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED\",\n      \"etag\": \"<string>\",\n      \"uid\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"locationId\": \"<string>\",\n      \"type\": \"DATABASE_TYPE_UNSPECIFIED\",\n      \"concurrencyMode\": \"CONCURRENCY_MODE_UNSPECIFIED\",\n      \"appEngineIntegrationMode\": \"ENABLED\",\n      \"pointInTimeRecoveryEnablement\": \"POINT_IN_TIME_RECOVERY_ENABLED\",\n      \"etag\": \"<string>\",\n      \"uid\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:47:33.000Z",
+                      "updatedAt": "2026-07-28T01:47:33.000Z",
+                      "uid": "35240-c5012110-1f38-4eee-a178-3e39643cdaa2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:47:33.000Z",
+                  "updatedAt": "2026-07-28T01:47:33.000Z",
+                  "uid": "35240-cfab8fea-86de-46cb-8e59-39e51b559c15"
+                },
+                {
+                  "name": "Google Cloud Firestore Create a database",
+                  "id": "3ad82187-0265-44b9-9737-54dc96980882",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/datastore",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://oauth2.googleapis.com/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.google.com/o/oauth2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "authorization_code",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"type\": \"FIRESTORE_NATIVE\",\n  \"concurrencyMode\": \"OPTIMISTIC\",\n  \"appEngineIntegrationMode\": \"ENABLED\",\n  \"pointInTimeRecoveryEnablement\": \"POINT_IN_TIME_RECOVERY_DISABLED\",\n  \"etag\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:project/databases?databaseId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":project",
+                        "databases"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "databaseId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "73e202a1-821e-4ca4-8411-99d4582dec4d",
+                          "key": "project",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Create a database."
+                  },
+                  "response": [
+                    {
+                      "id": "d594d8e2-72af-4ddb-b0e3-723713ad7d81",
+                      "name": "Database creation initiated",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"type\": \"FIRESTORE_NATIVE\",\n  \"concurrencyMode\": \"OPTIMISTIC\",\n  \"appEngineIntegrationMode\": \"ENABLED\",\n  \"pointInTimeRecoveryEnablement\": \"POINT_IN_TIME_RECOVERY_DISABLED\",\n  \"etag\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project/databases?databaseId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project",
+                            "databases"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "databaseId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "project"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<string>\",\n  \"done\": \"<boolean>\",\n  \"metadata\": {},\n  \"error\": {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:47:33.000Z",
+                      "updatedAt": "2026-07-28T01:47:33.000Z",
+                      "uid": "35240-d594d8e2-72af-4ddb-b0e3-723713ad7d81"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:47:33.000Z",
+                  "updatedAt": "2026-07-28T01:47:33.000Z",
+                  "uid": "35240-3ad82187-0265-44b9-9737-54dc96980882"
+                }
+              ],
+              "id": "dde58647-bfc4-4bb2-9d32-3ec8c66de282",
+              "createdAt": "2026-07-28T01:47:33.000Z",
+              "updatedAt": "2026-07-28T01:47:33.000Z",
+              "uid": "35240-dde58647-bfc4-4bb2-9d32-3ec8c66de282"
+            }
+          ],
+          "id": "ae35116d-853c-4978-b2d6-086f9213e6a8",
+          "createdAt": "2026-07-28T01:47:33.000Z",
+          "updatedAt": "2026-07-28T01:47:33.000Z",
+          "uid": "35240-ae35116d-853c-4978-b2d6-086f9213e6a8"
+        }
+      ],
+      "id": "a98e1893-29c0-412c-87f3-741c4f956b2c",
+      "createdAt": "2026-07-28T01:47:33.000Z",
+      "updatedAt": "2026-07-28T01:47:33.000Z",
+      "uid": "35240-a98e1893-29c0-412c-87f3-741c4f956b2c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://firestore.googleapis.com/v1"
+    }
+  ]
+}

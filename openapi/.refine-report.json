@@ -1,0 +1,16 @@
+{
+  "provider": "google-cloud-firestore",
+  "sources": [
+    "google-cloud-firestore-databases-api-openapi.yml",
+    "google-cloud-firestore-documents-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-cloud-firestore-databases-api-openapi.yml",
+    "google-cloud-firestore-documents-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
