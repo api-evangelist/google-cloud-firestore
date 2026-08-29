@@ -5,6 +5,18 @@ description: >-
   data in sync across client apps through real-time listeners and offers offline support for mobile and web, enabling
   responsive apps that work regardless of network latency or internet connectivity. Firestore supports ACID
   transactions, automatic multi-region data replication, and strong consistency guarantees.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
