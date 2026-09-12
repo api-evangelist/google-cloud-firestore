@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Cloud Firestore Databases Documents API
   description: The Cloud Firestore API provides RESTful access to Google Cloud Firestore, a flexible, scalable NoSQL cloud database for storing and syncing data. It enables CRUD operations on documents and collections, querying with filters and ordering, managing indexes, and handling real-time data synchronization across client apps.
@@ -270,6 +270,33 @@ paths:
         - https://www.googleapis.com/auth/datastore
 components:
   schemas:
+    Document:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The resource name of the document.
+        fields:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Value'
+          description: The document's fields.
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    RunQueryResponse:
+      type: object
+      properties:
+        document:
+          $ref: '#/components/schemas/Document'
+        readTime:
+          type: string
+          format: date-time
+        skippedResults:
+          type: integer
     Value:
       type: object
       properties:
@@ -312,33 +339,15 @@ components:
               type: object
               additionalProperties:
                 $ref: '#/components/schemas/Value'
-    RunQueryResponse:
+    ListDocumentsResponse:
       type: object
       properties:
-        document:
-          $ref: '#/components/schemas/Document'
-        readTime:
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+        nextPageToken:
           type: string
-          format: date-time
-        skippedResults:
-          type: integer
-    Document:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The resource name of the document.
-        fields:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Value'
-          description: The document's fields.
-        createTime:
-          type: string
-          format: date-time
-        updateTime:
-          type: string
-          format: date-time
     RunQueryRequest:
       type: object
       properties:
@@ -364,15 +373,6 @@ components:
               type: integer
             offset:
               type: integer
-    ListDocumentsResponse:
-      type: object
-      properties:
-        documents:
-          type: array
-          items:
-            $ref: '#/components/schemas/Document'
-        nextPageToken:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2
