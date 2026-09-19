@@ -49,6 +49,8 @@ apis:
   humanURL: https://cloud.google.com/firestore/docs
   baseURL: https://firestore.googleapis.com/v1
   tags:
+  - Database
+  tags_raw:
   - Databases
   properties:
   - type: OpenAPI
