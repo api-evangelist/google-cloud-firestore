@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google Cloud Firestore Databases Documents API
+  title: Google Cloud Firestore Documents API
   description: The Cloud Firestore API provides RESTful access to Google Cloud Firestore, a flexible, scalable NoSQL cloud database for storing and syncing data. It enables CRUD operations on documents and collections, querying with filters and ordering, managing indexes, and handling real-time data synchronization across client apps.
   version: v1
   contact:
@@ -270,6 +270,40 @@ paths:
         - https://www.googleapis.com/auth/datastore
 components:
   schemas:
+    RunQueryRequest:
+      type: object
+      properties:
+        structuredQuery:
+          type: object
+          properties:
+            from:
+              type: array
+              items:
+                type: object
+                properties:
+                  collectionId:
+                    type: string
+                  allDescendants:
+                    type: boolean
+            where:
+              type: object
+            orderBy:
+              type: array
+              items:
+                type: object
+            limit:
+              type: integer
+            offset:
+              type: integer
+    ListDocumentsResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+        nextPageToken:
+          type: string
     Document:
       type: object
       properties:
@@ -339,40 +373,6 @@ components:
               type: object
               additionalProperties:
                 $ref: '#/components/schemas/Value'
-    ListDocumentsResponse:
-      type: object
-      properties:
-        documents:
-          type: array
-          items:
-            $ref: '#/components/schemas/Document'
-        nextPageToken:
-          type: string
-    RunQueryRequest:
-      type: object
-      properties:
-        structuredQuery:
-          type: object
-          properties:
-            from:
-              type: array
-              items:
-                type: object
-                properties:
-                  collectionId:
-                    type: string
-                  allDescendants:
-                    type: boolean
-            where:
-              type: object
-            orderBy:
-              type: array
-              items:
-                type: object
-            limit:
-              type: integer
-            offset:
-              type: integer
   securitySchemes:
     oauth2:
       type: oauth2

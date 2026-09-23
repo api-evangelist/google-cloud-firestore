@@ -133,22 +133,6 @@ paths:
         - https://www.googleapis.com/auth/datastore
 components:
   schemas:
-    Operation:
-      type: object
-      properties:
-        name:
-          type: string
-        done:
-          type: boolean
-        metadata:
-          type: object
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-            message:
-              type: string
     ListDatabasesResponse:
       type: object
       properties:
@@ -194,6 +178,22 @@ components:
           type: string
         uid:
           type: string
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+        metadata:
+          type: object
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
   securitySchemes:
     oauth2:
       type: oauth2
