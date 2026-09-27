@@ -270,40 +270,6 @@ paths:
         - https://www.googleapis.com/auth/datastore
 components:
   schemas:
-    RunQueryRequest:
-      type: object
-      properties:
-        structuredQuery:
-          type: object
-          properties:
-            from:
-              type: array
-              items:
-                type: object
-                properties:
-                  collectionId:
-                    type: string
-                  allDescendants:
-                    type: boolean
-            where:
-              type: object
-            orderBy:
-              type: array
-              items:
-                type: object
-            limit:
-              type: integer
-            offset:
-              type: integer
-    ListDocumentsResponse:
-      type: object
-      properties:
-        documents:
-          type: array
-          items:
-            $ref: '#/components/schemas/Document'
-        nextPageToken:
-          type: string
     Document:
       type: object
       properties:
@@ -331,6 +297,40 @@ components:
           format: date-time
         skippedResults:
           type: integer
+    ListDocumentsResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+        nextPageToken:
+          type: string
+    RunQueryRequest:
+      type: object
+      properties:
+        structuredQuery:
+          type: object
+          properties:
+            from:
+              type: array
+              items:
+                type: object
+                properties:
+                  collectionId:
+                    type: string
+                  allDescendants:
+                    type: boolean
+            where:
+              type: object
+            orderBy:
+              type: array
+              items:
+                type: object
+            limit:
+              type: integer
+            offset:
+              type: integer
     Value:
       type: object
       properties:
