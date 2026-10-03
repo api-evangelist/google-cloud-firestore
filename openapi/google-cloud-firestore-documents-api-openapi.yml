@@ -270,33 +270,6 @@ paths:
         - https://www.googleapis.com/auth/datastore
 components:
   schemas:
-    Document:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The resource name of the document.
-        fields:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Value'
-          description: The document's fields.
-        createTime:
-          type: string
-          format: date-time
-        updateTime:
-          type: string
-          format: date-time
-    RunQueryResponse:
-      type: object
-      properties:
-        document:
-          $ref: '#/components/schemas/Document'
-        readTime:
-          type: string
-          format: date-time
-        skippedResults:
-          type: integer
     ListDocumentsResponse:
       type: object
       properties:
@@ -331,6 +304,33 @@ components:
               type: integer
             offset:
               type: integer
+    RunQueryResponse:
+      type: object
+      properties:
+        document:
+          $ref: '#/components/schemas/Document'
+        readTime:
+          type: string
+          format: date-time
+        skippedResults:
+          type: integer
+    Document:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The resource name of the document.
+        fields:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Value'
+          description: The document's fields.
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
     Value:
       type: object
       properties:
