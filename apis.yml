@@ -82,6 +82,9 @@ apis:
   - type: JSONSchema
     url: json-schema/document-schema.json
 common:
+  - type: CapabilityMap
+    url: capabilities/google-cloud-firestore-capability-edges.yml
+    name: Google Cloud Firestore Business Capability Map
   - type: Website
     url: https://www.google.com/
   - type: PostmanWorkspace
