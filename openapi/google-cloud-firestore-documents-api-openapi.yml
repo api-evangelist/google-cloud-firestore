@@ -270,67 +270,6 @@ paths:
         - https://www.googleapis.com/auth/datastore
 components:
   schemas:
-    ListDocumentsResponse:
-      type: object
-      properties:
-        documents:
-          type: array
-          items:
-            $ref: '#/components/schemas/Document'
-        nextPageToken:
-          type: string
-    RunQueryRequest:
-      type: object
-      properties:
-        structuredQuery:
-          type: object
-          properties:
-            from:
-              type: array
-              items:
-                type: object
-                properties:
-                  collectionId:
-                    type: string
-                  allDescendants:
-                    type: boolean
-            where:
-              type: object
-            orderBy:
-              type: array
-              items:
-                type: object
-            limit:
-              type: integer
-            offset:
-              type: integer
-    RunQueryResponse:
-      type: object
-      properties:
-        document:
-          $ref: '#/components/schemas/Document'
-        readTime:
-          type: string
-          format: date-time
-        skippedResults:
-          type: integer
-    Document:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The resource name of the document.
-        fields:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Value'
-          description: The document's fields.
-        createTime:
-          type: string
-          format: date-time
-        updateTime:
-          type: string
-          format: date-time
     Value:
       type: object
       properties:
@@ -373,6 +312,67 @@ components:
               type: object
               additionalProperties:
                 $ref: '#/components/schemas/Value'
+    ListDocumentsResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+        nextPageToken:
+          type: string
+    RunQueryResponse:
+      type: object
+      properties:
+        document:
+          $ref: '#/components/schemas/Document'
+        readTime:
+          type: string
+          format: date-time
+        skippedResults:
+          type: integer
+    Document:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The resource name of the document.
+        fields:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Value'
+          description: The document's fields.
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    RunQueryRequest:
+      type: object
+      properties:
+        structuredQuery:
+          type: object
+          properties:
+            from:
+              type: array
+              items:
+                type: object
+                properties:
+                  collectionId:
+                    type: string
+                  allDescendants:
+                    type: boolean
+            where:
+              type: object
+            orderBy:
+              type: array
+              items:
+                type: object
+            limit:
+              type: integer
+            offset:
+              type: integer
   securitySchemes:
     oauth2:
       type: oauth2
