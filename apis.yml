@@ -82,6 +82,12 @@ apis:
   - type: JSONSchema
     url: json-schema/document-schema.json
 common:
+  - type: Plans
+    url: plans/google-cloud-firestore-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/google-cloud-firestore-rate-limits.yml
+  - type: FinOps
+    url: finops/google-cloud-firestore-finops.yml
   - type: CapabilityMap
     url: capabilities/google-cloud-firestore-capability-edges.yml
     name: Google Cloud Firestore Business Capability Map
